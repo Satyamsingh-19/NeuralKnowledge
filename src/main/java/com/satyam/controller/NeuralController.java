@@ -151,6 +151,23 @@ public class NeuralController {
 		}
 		return "my_document";
 	}
+	@GetMapping("/delete")
+	public String deletePDF(@RequestParam Long id,Model m, Principal principal) throws IOException {
+		
+		DocumentChunk obj=docService.getDocument(id);
+		
+		if(obj!=null) {
+			docService.deleteDoc(obj.getId());
+		}
+		
+		String userName=principal.getName();
+		
+		List<DocumentChunk>docs=docService.myDocument(userName);
+		
+		m.addAttribute("documents", docs);
+		
+		return "my_document";
+	}
 	@GetMapping("/changePassword")
 	public String changePasswordd() {
 		return "changepassword";
