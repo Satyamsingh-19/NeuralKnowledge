@@ -61,7 +61,7 @@ public class SecurityConfig {
         
 		.oauth2Login(oauth2 -> oauth2
         .loginPage("/oauth2/authorization/google") // Separate login page for Google OAuth2
-        .defaultSuccessUrl("/home", true)
+        .defaultSuccessUrl("/dashboard", true)
         
         .userInfoEndpoint(userInfo -> userInfo
                 .userService(new DefaultOAuth2UserService(){
