@@ -68,5 +68,10 @@ public class DocumentService {
 	            .orElseThrow(() ->
 	                new RuntimeException("Document not found or access denied"));
 	}
+
+	public void deleteDoc(Long id) {
+		
+		documentRepo.deleteById(id);
+	}
 }
 
