@@ -51,7 +51,7 @@ public class MailSending {
 		try {
 			String sub="Password Reset Request";
 			String token = jwtUtil.generateToken(remail);
-			String resetLink = "http://localhost:1998/reset_password?token=" + token;
+			String resetLink = "http://localhost:8080/reset_password?token=" + token;
 			String body="<h1 style='background-color:blue;color:white;padding:20px;'>Congrats!</h1> "
 			+ "<p style='background-color:yellow;padding:20px;'>Click the link to reset your password: "+resetLink+"!</p>";
 			MimeMessage mailMessage=mailSender.createMimeMessage();
@@ -68,4 +68,5 @@ public class MailSending {
 		}
 	}
 }
+
 
