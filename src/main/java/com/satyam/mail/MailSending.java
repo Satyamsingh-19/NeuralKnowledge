@@ -33,7 +33,7 @@ public class MailSending {
 		try {
 			String sub="Password Reset Request";
 			String token = jwtUtil.generateToken(remail);
-			String resetLink = "http://localhost:1998/reset_password?token=" + token;
+			String resetLink = "http://localhost:8080/reset_password?token=" + token;
 			String body="Click the link to reset your password: "+resetLink;
 			SimpleMailMessage mailMessage=new SimpleMailMessage();
 			mailMessage.setTo(remail);
@@ -68,3 +68,4 @@ public class MailSending {
 		}
 	}
 }
+
